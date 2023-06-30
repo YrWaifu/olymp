@@ -1,0 +1,2 @@
+# olymp
+MAI olymp practics
