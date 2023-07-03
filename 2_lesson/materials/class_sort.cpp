@@ -2,21 +2,20 @@
 
 using namespace std;
 
+#define all(x) x.begin(), x.end()
+using ll = long long;
+
 class item {
     // private изначально
     public:
     int num;
     char word;
-    void privet() {
-        cout << word;
-    }
-    item(int n) { // конструктор, можно еще item(int n) : num(n) { word = 'a' } - список инициализации
-        num = n;
-        word = 'a';
-    }
-    ~item() {} // деструктор
 };
 // struct - изначально все паблик
+
+bool operator<(item a, item b) {
+    return a.num < b.num;
+}
 
 int main() {
     int n;
@@ -26,7 +25,6 @@ int main() {
         cin >> a[i].num >> a[i].word;
     }
     for (item elem : a) {
-        elem.privet();
         // cout << elem.num << ' ' << elem.word << '\n';
     }
 }
