@@ -15,8 +15,8 @@ int main() {
     }
     sort(a.begin(), a.end(), comp);
     vector<int>::iterator ptr = a.begin();
-    // cout << a[0] << '\n';
-    // cout << *(ptr + 2) << '\n';
+    cout << a[0] << '\n';
+    cout << *(ptr + 2) << '\n';
     for (int i = 0; i < n; i++) {
         cout << a[i] << ' ';
     }
