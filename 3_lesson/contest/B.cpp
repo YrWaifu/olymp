@@ -1,28 +1,28 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 using namespace std;
 
+const int MOD = 1e9 + 7;
+
 int main() {
-    int N;
-    cin >> N;
+    int n, k, m;
+    cin >> n >> k >> m;
+    vector<int> dp(n + 1);
+    vector<int> alarm(n + 1, 0);
+    dp[0] = 1;
+    for (int i = 0; i < m; i++) {
+        int buf;
+        cin >> buf;
+        alarm[buf] = 1;
+    }
 
-    vector<int> dp(N + 1);
-    dp[1] = 0;
-
-    for (int i = 2; i <= N; i++) {
-        dp[i] = dp[i - 1] + 1;  // Операция вычитания единицы
-
-        if (i % 2 == 0) {
-            dp[i] = min(dp[i], dp[i / 2] + 1);  // Операция деления на два
-        }
-
-        if (i % 3 == 0) {
-            dp[i] = min(dp[i], dp[i / 3] + 1);  // Операция деления на три
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= k; j++) {
+            if (i - j >= 0 and alarm[i - j] != 1) {
+                dp[i] = (dp[i] + dp[i - j]) % MOD;
+            }
         }
     }
 
-    cout << dp[N] << endl;
-
-    return 0;
+    cout << dp[n] << endl;
 }
