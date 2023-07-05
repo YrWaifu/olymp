@@ -27,7 +27,7 @@ int main() {
     int n;
     cin >> n;
     vector<event> e;
-    for (int i =0; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
         int l, r;
         cin >> l >> r;
         e.emplace_back(l, 1);
